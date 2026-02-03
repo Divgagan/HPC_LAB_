@@ -1,0 +1,38 @@
+What we observe from the output
+
+1. Before using private() (Race Condition)
+
+Output appears scrambled / interleaved.
+
+Lines are printed in random order.
+
+Sometimes the same thread ID repeats or looks incorrect.
+
+Reason:
+
+Multiple threads are sharing the same variable and writing to stdout simultaneously.
+
+This demonstrates the non-deterministic nature of parallel execution.
+
+2. After using private(thread_id)
+
+Each thread gets its own copy of the thread ID.
+
+Output becomes consistent and logical.
+
+No incorrect or mixed thread IDs.
+
+Order may still vary, but data correctness is ensured.
+
+This shows how proper variable scoping removes race conditions.
+
+Key Learning
+
+Parallel programs can give different outputs on different runs if shared resources are not handled properly.
+
+Race condition happens when multiple threads access shared data without control.
+
+Using private() ensures thread safety by giving each thread its own local variable.
+
+👉 In short:
+Problem shows why race conditions occur and how private() fixes them in OpenMP.
