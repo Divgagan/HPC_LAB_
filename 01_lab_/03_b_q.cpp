@@ -13,5 +13,12 @@ int main() {
         printf("Hello World from Thread %d\n", id);
     }
 
+  
+  
     return 0;
 }
+
+OBSERVATIONS AND EXPLANATIONS:
+The output will consistently show correct thread IDs without duplication or errors.
+Using the private() clause ensures each thread has its
+ own copy of the variable, eliminating race conditions and producing correct output.

@@ -1,38 +1,37 @@
 #include <iostream>
 #include <omp.h>
-#include <cstdlib>
 using namespace std;
 
 int main() {
-    const int N = 1000000;
+    const int N = 100;
     int arr[N];
 
     // Sequential initialization
     for (int i = 0; i < N; i++) {
-        arr[i] = rand() % 100000;
+        arr[i] = i % 100;
     }
 
     int maxVal = arr[0];
 
-    // here is the parallel region to find the maximum value
-
+    // Parallel region with reduction
     #pragma omp parallel for reduction(max:maxVal)
     for (int i = 0; i < N; i++) {
-        if (arr[i] > maxVal)
+        if (arr[i] > maxVal) {
             maxVal = arr[i];
+        }
     }
 
     cout << "Maximum value: " << maxVal << endl;
-
     return 0;
 }
+
 
 
 
 // Notes  : 
 
 
-// Reduction ka matlab hota hai:
+// Reduction Means  hai:
 
 // multiple threads ke partial results ko safely combine karke ek final result banana
 
@@ -58,7 +57,7 @@ int main() {
 
 // Galat maximum value
 
-// ⚠️ Maximum calculation parallel me unsafe ho jaata.
+//  Maximum calculation parallel me unsafe ho jaata.
 
 
 ////////////////////////

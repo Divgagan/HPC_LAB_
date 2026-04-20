@@ -15,4 +15,12 @@ int main() {
         printf("Thread %d after single\n", omp_get_thread_num());
     }
     return 0;
+
+
 }
+
+
+Observations:
+- Only one thread executes the single block, while others continue without waiting.
+- The thread that executes the single block is non-deterministic.
+- After the single block, all threads continue execution immediately.

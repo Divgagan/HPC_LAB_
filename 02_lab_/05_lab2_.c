@@ -17,6 +17,7 @@ int main() {
 }
 
 
+
 // Observations:
 - Only the master thread (thread 0) executes the master block.
 - Other threads do not wait and continue execution immediately after the master block.

@@ -21,7 +21,7 @@ int main() {
     return 0;
 }
 
-/**🔹 Observations (Write in Report)
+/**🔹 Observations (Join clause showing the Implicit Behaviour )
 
 All threads execute concurrently inside the parallel region.
 
